@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Docker Webpage</title>
+</head>
+<body>
+    <header>
+        <h1>THIS IS A DOCKER WEBSITE !!</h1>
+    </header>
+    <section>
+        <img src="stars.png", id="stars">
+        <img src="mountains_behind.png", id="mountain_behind">
+        <img src="mountains_front.png", id="mountain_front">
+        <div id="form"><input id="input1" name="command", placeholder="Enter Your Command" onkeyup="lw()"/></div>
+        <pre>
+            <div id="d1"><p id="para">[root@localhost ~]# </p></div>
+        </pre>
+        <br><br><br>
+    <div id="submit">
+        <button id="button" onclick="docker()">Submit</button>
+    </div>
+    </section>
+    <div class="sec2">
+        <h2 id="aq">Technology Used !!</h2>
+        <section>
+        <img src="html1.png" , id="html">
+        <img src="py.png", id="python">
+        <img src="doc.png", id="docker">
+        </section>
+        <h3>Created by : VARUN</h3>
+    </div>
+</body>
+</html>
+
+<script>
+    function lw() {
+        document.getElementById("para").innerHTML= ("[root@localhost ~]# " + 	document.getElementById("input1").value) }
+    function docker() {
+        var i = document.getElementById("input1").value
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "http://192.168.45.165/cgi-bin/backend.py?x=" +i, true);
+        xhr.send();
+        xhr.onload = function () {
+        op = xhr.responseText;
+        document.getElementById("para").innerHTML = "[root@localhost ~]# " + i + '\n' + op;
+        }
+        document.getElementById("input1").value = "";
+
+    }
+</script>
+
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100;
+    min-height: 100vh;
+    background: linear-gradient(#2b1055,#7597de);
+   
+}
+
+header h1{
+    position: absolute;
+    color:aqua;
+    top: 20px;
+    font-size: 60px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    left: 280px;
+    background-image: linear-gradient(#b16969, #705c9e);
+}
+
+section{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    padding: 100px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+section img{
+    position: absolute;
+    height: 100vh;
+    width: 100%;
+    top: 50px;
+    left: 0;
+    object-fit: cover;
+}
+#form{
+    position: relative;
+    
+}
+#input1 {
+    display: block;
+    margin-top: 40px;
+    width: 400px;
+    text-align: center;
+    height: 10%;
+    font-family: inherit;
+    font-weight: inherit;
+    border-radius: 0.4rem;
+    font-size: 24px;
+}
+#input1::placeholder {
+    color: #161602;
+    text-align: center;
+}
+
+#d1{
+    background-color: white;
+    width: 55%;
+    height: 23rem;
+    max-height: 23rem;
+    position:absolute;
+    top: 230px;
+    right: 380px;
+    font-size: 20px;
+    overflow: auto;
+}
+
+#button {
+    position: absolute;
+    
+    top: 620px;
+    left: 600px;
+    background-color: rgb(255, 0,68);
+    border: none;
+    border-radius: 10px;
+    letter-spacing: 4px;
+    font-family: 'Source Sans Pro', sans-serif;;
+    font-size: 24px;
+    color: #FFFFFF;
+    padding: 20px;
+    width: 200px;
+    text-align: center;
+    transition:ease-out 0.3s;
+    box-shadow: inset 0 0 0 0 #f9e506;
+    text-decoration: none;
+    outline: none;
+    overflow: hidden;
+}
+
+#button:hover {
+    box-shadow: inset 200px 0 0 0 #f9e506;
+    cursor: pointer;
+    color: #161602;
+}
+.sec2{
+    position: relative;
+    padding: 20px;
+    background: #1c0522;
+   }
+ 
+#html {
+    left: 520px;
+    top: 0px;
+    height: 300px;
+    width: 350px;
+    object-fit: contain;
+    align-self:center; 
+} 
+
+.sec2 h2{
+    color: white;
+    top: 50px;
+    font-size: 70px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    left: 500px;
+    text-align: center;
+}
+
+#python {
+    left: 500px;
+    top: 190px;
+    height: 340px;
+    width: 350px;
+    object-fit: contain;
+    align-self:center;
+}
+#docker {
+    left: 560px;
+    top: 440px;
+    height: 250px;
+    width: 250px;
+    object-fit: contain;
+    align-self:center;
+}
+
+.sec2 h3{
+    color: rgb(193, 230, 30);
+    font-size: 50px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    left: 400px;
+    text-align: center;
+}
+
+</style>
